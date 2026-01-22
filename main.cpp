@@ -3,7 +3,7 @@
 #include "game.cpp"
 
 int main() {
-    int points=2, players=0, darts_out=5;
+    int points, players=2, darts_out=1;
     
     std::cout << "Darts App" << std::endl;
 
