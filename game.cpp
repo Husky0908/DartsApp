@@ -1,8 +1,42 @@
+using namespace std;
 void game(int point, int players, int darts_out) {
-    int points[players];
 
-    for (int i=0; i<=players; i++) {
-        points[i] = point;
-        std::cout << points[i] << std::endl;
-    }
+    // Declaration
+        int points[players];
+        int scored;
+        bool out=false;
+        int j=0;
+        int test;
+        bool first=true;
+
+    // Valuation
+        for (int i=0; i<=players-1; i++) {
+            points[i] = point;
+        }
+
+    // posting scores
+        for(j; j<=players-1;j++)
+        cout << "Player"<<j+1<<": "<<points[j]<<endl;
+            if(j>=(players-1)) {
+                cout <<endl <<endl;
+            }
+    // game loop
+        while(out==false){
+
+            if(first!=false){
+            j=0;
+            }
+
+            for(int k=1; k<=3;k++){
+                cout <<"j:"<< j<<endl;
+                cout << "First:" << first <<endl;
+                first == false;
+                cout << "Player"<< j+1 << " scored" << k <<":";
+                cin >> scored;
+                points[j]=points[j]-scored;
+                cout <<"points[j]: "<< points[j] << endl;
+                }
+            j=j+1;
+            cout <<"First: " <<first;
+        }
 }
