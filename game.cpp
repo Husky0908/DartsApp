@@ -34,9 +34,20 @@ void game(int point, int players, int darts_out) {
                 cout << "Player"<< j+1 << " scored" << k <<":";
                 cin >> scored;
                 points[j]=points[j]-scored;
+
+                if(points[j]==0){
+                    out = true;
+                    break;
+                    }
+
+                if(points[j]<0){
+                    points[j]=points[j]+scored;
+                    cout << "Too mutch!" <<endl;
+                    }
+
                 cout <<"points[j]: "<< points[j] << endl;
                 }
+            cout << "The vinner is: Player" << j+1;
             j=j+1;
-            cout <<"First: " <<first;
         }
 }
