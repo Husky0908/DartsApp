@@ -47,7 +47,7 @@ void game(int point, int players, int darts_out) {
 
                 cout <<"points[j]: "<< points[j] << endl;
                 }
-            cout << "The vinner is: Player" << j+1;
+            cout <<endl<< "The vinner is: Player" << j+1<<endl;
             j=j+1;
         }
 }
