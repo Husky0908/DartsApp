@@ -7,7 +7,7 @@ void game(int point, int players, int darts_out) {
         bool out=false;
         int j=0;
         int test;
-        bool first=true;
+        int first=players;
 
     // Valuation
         for (int i=0; i<=players-1; i++) {
@@ -23,14 +23,15 @@ void game(int point, int players, int darts_out) {
     // game loop
         while(out==false){
 
-            if(first!=false){
+            if(first%players==0){
             j=0;
             }
 
-            for(int k=1; k<=3;k++){
+
+            int k=1;
+            for(k; k<=3;k++){
                 cout <<"j:"<< j<<endl;
                 cout << "First:" << first <<endl;
-                first == false;
                 cout << "Player"<< j+1 << " scored" << k <<":";
                 cin >> scored;
                 points[j]=points[j]-scored;
@@ -45,9 +46,11 @@ void game(int point, int players, int darts_out) {
                     cout << "Too mutch!" <<endl;
                     }
 
-                cout <<"points[j]: "<< points[j] << endl;
+                cout <<endl<<"points[j]: "<< points[j] << endl;
+
                 }
-            cout <<endl<< "The vinner is: Player" << j+1<<endl;
-            j=j+1;
+            j++;
+            first++;
         }
+        cout <<endl<< "The vinner is: Player" << j<<endl;
 }
