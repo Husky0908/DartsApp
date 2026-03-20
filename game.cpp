@@ -36,8 +36,11 @@ void game(int point, int players, int darts_out) {
                 cin >> scored;
                 if (scored>60) good = false;
                 if (scored<0) good = false;
-                if (scored>20 && scored<40) {if (!(scored%2==0)) good = false;}
+                if (scored>20 && scored<=40) {if (!(scored%2==0)) good = false;}
                 if (scored>20 && scored<60) {if (!(scored%3==0)) good = false;}
+                if (scored==25 || scored==50) good = true;
+                if (scored>20 && scored<=40) {if (scored%2==0) good = true;}
+                if (scored>20 && scored<60) {if (scored%3==0) good = true;}
                 if (good) {
                     points[j]=points[j]-scored;
 
@@ -55,8 +58,8 @@ void game(int point, int players, int darts_out) {
                 } else {
                     cout << "Incorrect score!" << endl;
                     k--;
+                    good = true;
                 }
-
                 }
             j++;
             first++;
