@@ -30,10 +30,13 @@ void game(int point, int players, int darts_out) {
 
             int k=1;
             for(k; k<=3;k++){
-                cout <<"j:"<< j<<endl;
-                cout << "First:" << first <<endl;
+
+            //    cout <<"j:"<< j<<endl;
+            //    cout << "First:" << first <<endl;
+                cout << "Points: "<< points[j] << endl;
                 cout << "Player"<< j+1 << " scored" << k <<":";
                 cin >> scored;
+            //    system("clear");
                 if (scored>60) good = false;
                 if (scored<0) good = false;
                 if (scored>20 && scored<=40) {if (!(scored%2==0)) good = false;}
@@ -48,13 +51,13 @@ void game(int point, int players, int darts_out) {
                         out = true;
                         break;
                     }
-
+                system("clear");
                     if(points[j]<0){
                         points[j]=points[j]+scored;
                         cout << "Too mutch!" <<endl;
                     }
 
-                    cout <<endl<<"points[j]: "<< points[j] << endl;
+               //     cout <<endl<<"points[j]: "<< points[j] << endl;
                 } else {
                     cout << "Incorrect score!" << endl;
                     k--;
