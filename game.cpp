@@ -1,5 +1,14 @@
 using namespace std;
-void game(int point, int players, int darts_out) {
+
+void scores_print(int players, int points[players], int j) {
+    for(j; j<=players-1;j++)
+        cout << "Player"<<j+1<<": "<<points[j]<<endl;
+    if(j>=(players-1)) {
+        cout <<endl <<endl;
+    }
+}
+
+void game(int point, int players) {
 
     // Declaration
     int points[players];
@@ -16,11 +25,8 @@ void game(int point, int players, int darts_out) {
         }
 
     // posting scores
-        for(j; j<=players-1;j++)
-        cout << "Player"<<j+1<<": "<<points[j]<<endl;
-            if(j>=(players-1)) {
-                cout <<endl <<endl;
-            }
+    scores_print(players, points, j);
+    
     // game loop
         while(out==false){
 
@@ -51,7 +57,6 @@ void game(int point, int players, int darts_out) {
                         out = true;
                         break;
                     }
-                system("clear");
                     if(points[j]<0){
                         points[j]=points[j]+scored;
                         cout << "Too mutch!" <<endl;
@@ -66,6 +71,8 @@ void game(int point, int players, int darts_out) {
                 }
             j++;
             first++;
+            system("clear");
+            scores_print(players, points, 0);
         }
         cout <<endl<< "The winner is: Player" << j<<endl;
 }

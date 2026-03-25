@@ -5,12 +5,14 @@
 
 int main() {
 
-    int points, players=2, darts_out=1;
+    int points, players=2;
 
+    system("clear");
     std::cout << "Darts App" << std::endl;
 
-    menu(&points, &players, &darts_out);
-    game(points, players, darts_out);
+    menu(&points, &players);
+    system("clear");
+    game(points, players);
 
     return 0;
 }
