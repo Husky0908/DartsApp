@@ -37,12 +37,10 @@ void game(int point, int players) {
             int k=1;
             for(k; k<=3;k++){
 
-            //    cout <<"j:"<< j<<endl;
-            //    cout << "First:" << first <<endl;
                 cout << "Points: "<< points[j] << endl;
                 cout << "Player"<< j+1 << " scored" << k <<":";
                 cin >> scored;
-            //    system("clear");
+
                 if (scored>60) good = false;
                 if (scored<0) good = false;
                 if (scored>20 && scored<=40) {if (!(scored%2==0)) good = false;}
@@ -62,7 +60,6 @@ void game(int point, int players) {
                         cout << "Too mutch!" <<endl;
                     }
 
-               //     cout <<endl<<"points[j]: "<< points[j] << endl;
                 } else {
                     cout << "Incorrect score!" << endl;
                     k--;
@@ -74,5 +71,7 @@ void game(int point, int players) {
             system("clear");
             scores_print(players, points, 0);
         }
-        cout <<endl<< "The winner is: Player" << j<<endl;
+    cout << "|----------------------|\n";
+    cout << "|The winner is: Player" << j << "|\n";
+    cout << "|----------------------|\n";
 }
