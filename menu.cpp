@@ -1,3 +1,5 @@
+#include <iostream>
+
 void menu(int *points, int *players) {
     
     do {
