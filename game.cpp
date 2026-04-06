@@ -7,26 +7,21 @@ using namespace std;
 struct Player {
     string name;
     int score;
+    int three_darts_score;
+    int thr_darts;
     int thr;
+    int sum;
     float average;
 
-    Player(int id, int score) : score(score), thr(0), average(0) {
+    Player(int id, int score) : score(score), thr_darts(0), average(0), sum(0), three_darts_score(0), thr(0) {
         name = "Player" + std::to_string(id);
     }
 };
 
-void scores_print(int players, int points[], int j) {
-    // for(deklaracio [opcionalis]; feltetel [opcionalis]; ciklusmuvelet [opcionalis]) {}
-    for(; j<=players-1;j++)
-        cout << "Player"<<j+1<<": "<<points[j]<<endl;
-    if(j>=(players-1)) {
-        cout <<endl <<endl;
-    }
-}
-
 void score_print_2(const vector<Player> &players) {
     for (const auto& player : players) {
         cout << player.name << ": " << player.score << endl;
+        cout << player.thr_darts << " darts, average: " << player.average << endl;
     }
     cout << endl << endl;
 }
@@ -72,14 +67,18 @@ void game(int point, int nm_players) {
             if (scored>20 && scored<60) {if (scored%3==0) good = true;}
             if (good) {
                 player.score = player.score-scored;
+                player.three_darts_score = player.three_darts_score + scored;
+                player.thr_darts++;
 
                 if(player.score==0){
                     out = true;
                     break;
                 }
                 if(player.score<0){
-                    player.score = player.score+scored;
-                    cout << "Too mutch!" <<endl;
+                    player.score = player.score + player.three_darts_score;
+                    player.three_darts_score = 0;
+                    cout << "Too mutch!" << endl;
+                    k = 4;
                 }
 
             } else {
@@ -88,6 +87,10 @@ void game(int point, int nm_players) {
                 good = true;
             }
         }
+        player.thr++;
+        player.sum = player.sum + player.three_darts_score;
+        player.average = float(player.sum)/float(player.thr);
+        player.three_darts_score = 0;
         j++;
         first++;
         system("clear");
